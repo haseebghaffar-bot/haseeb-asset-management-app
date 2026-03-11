@@ -1,0 +1,259 @@
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --border-color: #e5e7eb;
+}
+
+html.dark {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --text-primary: #e5e7eb;
+  --text-secondary: #9ca3af;
+  --border-color: #1a1a1a;
+}
+
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 400ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input,
+textarea,
+select,
+.transition-none {
+  transition: none !important;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: #000000;
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+html.dark body {
+  color: var(--text-primary);
+}
+
+:root {
+  --el-color-primary: #374151;
+  --el-color-primary-light-3: #4b5563;
+  --el-color-primary-light-5: #6b7280;
+  --el-color-primary-light-7: #9ca3af;
+  --el-color-primary-light-8: #d1d5db;
+  --el-color-primary-light-9: #f3f4f6;
+  --el-color-primary-dark-2: #1f2937;
+
+  --el-color-success: #6b7280;
+  --el-color-success-light-9: #f3f4f6;
+
+  --el-color-warning: #9ca3af;
+  --el-color-warning-light-9: #f3f4f6;
+
+  --el-color-danger: #9ca3af;
+  --el-color-danger-light-3: #d1d5db;
+  --el-color-danger-light-5: #e5e7eb;
+  --el-color-danger-light-7: #f3f4f6;
+  --el-color-danger-light-8: #f9fafb;
+  --el-color-danger-light-9: #f9fafb;
+  --el-color-danger-dark-2: #6b7280;
+
+  --el-button-danger-bg-color: #d1d5db;
+  --el-button-danger-border-color: #d1d5db;
+  --el-button-danger-hover-bg-color: #9ca3af;
+  --el-button-danger-hover-border-color: #9ca3af;
+  --el-button-danger-font-color: #374151;
+
+  --el-color-info: #9ca3af;
+  --el-color-info-light-9: #f3f4f6;
+
+  --el-button-primary-bg-color: #374151;
+  --el-button-primary-border-color: #374151;
+  --el-button-primary-hover-bg-color: #1f2937;
+  --el-button-primary-hover-border-color: #1f2937;
+  --el-color-primary-light-7: #f3f4f6;
+  --el-color-primary-light-8: #f9fafb;
+  --el-color-primary-light-9: #f9fafb;
+}
+
+.el-button:focus-visible {
+  outline: 2px solid #9ca3af !important;
+  outline-offset: 2px;
+}
+
+.el-button {
+  --el-button-outline-color: #9ca3af !important;
+}
+
+.el-button--danger.is-plain {
+  --el-button-text-color: #4b5563 !important;
+  --el-button-bg-color: #f9fafb !important;
+  --el-button-border-color: #d1d5db !important;
+  --el-button-hover-text-color: #000000 !important;
+  --el-button-hover-bg-color: #e5e7eb !important;
+  --el-button-hover-border-color: #9ca3af !important;
+}
+
+.el-button--danger:not(.is-plain) {
+  --el-button-text-color: #ffffff !important;
+  --el-button-bg-color: #4b5563 !important;
+  --el-button-border-color: #4b5563 !important;
+  --el-button-hover-bg-color: #1f2937 !important;
+  --el-button-hover-border-color: #1f2937 !important;
+}
+
+html.dark {
+  --el-color-primary: #ffffff;
+  --el-color-primary-light-3: #d1d5db;
+  --el-color-primary-dark-2: #e5e7eb;
+
+  --el-color-danger: #4b5563;
+  --el-color-danger-light-9: #0a0a0a;
+
+  --primary-500: #ffffff;
+  --primary-600: #f3f4f6;
+  --danger-500: #4b5563;
+  --bg-hover: #1a1a1a;
+
+  --el-bg-color: #000000;
+  --el-bg-color-overlay: #0a0a0a;
+  --el-border-color-lighter: #1a1a1a;
+  --el-border-color-light: #262626;
+  --el-text-color-primary: #e5e7eb;
+  --el-text-color-regular: #a3a3a3;
+}
+
+.el-icon {
+  color: inherit;
+}
+a {
+  color: #374151;
+  text-decoration: none;
+}
+
+html.dark a {
+  color: #d1d5db;
+}
+
+a:hover {
+  color: #000000;
+}
+
+html.dark a:hover {
+  color: #ffffff;
+}
+
+html.dark body {
+  background-color: #000000;
+}
+
+html.dark .el-button--primary:not(.is-plain) {
+  color: #000000 !important;
+  --el-button-text-color: #000000 !important;
+  font-weight: 600;
+}
+
+html.dark .el-button--primary.is-plain {
+  color: #e5e7eb !important;
+  --el-button-text-color: #e5e7eb !important;
+}
+
+html.dark .el-radio-button__inner {
+  background-color: transparent !important;
+  border-color: #333 !important;
+  color: #a1a1a1 !important;
+}
+
+html.dark .el-radio-button__orig-radio:checked + .el-radio-button__inner,
+html.dark .el-radio-button.is-active .el-radio-button__inner {
+  color: #000000 !important;
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+  box-shadow: none !important;
+  font-weight: 600;
+}
+
+html.dark .el-radio-button__inner:hover {
+  color: #ffffff !important;
+}
+html.dark .el-radio-button.is-active .el-radio-button__inner:hover,
+html.dark .el-radio-button__orig-radio:checked + .el-radio-button__inner:hover {
+  color: #000000 !important;
+  background-color: #ffffff !important;
+}
+
+html.dark .el-table {
+  --el-table-bg-color: transparent !important;
+  --el-table-tr-bg-color: transparent !important;
+  --el-table-header-bg-color: #050505 !important;
+  --el-table-border-color: #1a1a1a !important;
+}
+
+html.dark .el-card {
+  --el-card-bg-color: #0a0a0a !important;
+  --el-card-border-color: #1a1a1a !important;
+  border: 1px solid #1a1a1a !important;
+  box-shadow:
+    0 10px 30px -10px rgba(0, 0, 0, 0.5),
+    0 4px 20px rgba(255, 255, 255, 0.06) !important;
+}
+
+html.dark {
+  --el-box-shadow-light:
+    0 0 0 1px #262626, 0 12px 32px 4px rgba(0, 0, 0, 0.4), 0 8px 20px rgba(0, 0, 0, 0.8) !important;
+  --el-box-shadow:
+    0 0 0 1px #262626, 0 12px 32px 4px rgba(0, 0, 0, 0.6), 0 8px 20px rgba(0, 0, 0, 1) !important;
+}
+
+html.dark .el-dialog,
+html.dark .el-message-box,
+html.dark .el-popper {
+  background-color: #0a0a0a !important;
+  border: 1px solid #262626 !important;
+  box-shadow: var(--el-box-shadow) !important;
+}
+
+html.dark .el-input__inner,
+html.dark .el-textarea__inner,
+html.dark .el-select__wrapper {
+  background-color: #050505 !important;
+  border-color: #1a1a1a !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+}
+
+html.dark .el-input__wrapper,
+html.dark .el-textarea__wrapper,
+html.dark .el-select__wrapper {
+  background-color: #050505 !important;
+  box-shadow: 0 0 0 1px #1a1a1a inset !important;
+}
+
+html.dark .el-input__wrapper:hover,
+html.dark .el-select__wrapper:hover {
+  box-shadow: 0 0 0 1px #333 inset !important;
+}
+
+html.dark .el-input__wrapper.is-focus,
+html.dark .el-select__wrapper.is-focus {
+  box-shadow: 0 0 0 1px #888 inset !important;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
