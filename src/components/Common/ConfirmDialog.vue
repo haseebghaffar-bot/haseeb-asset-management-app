@@ -33,11 +33,11 @@
               >
                 {{ title }}
               </DialogTitle>
-              
+
               <div class="mt-2 text-gray-600 dark:text-gray-300 text-sm whitespace-pre-line mb-4">
                 {{ message }}
               </div>
-              
+
               <slot></slot>
 
               <div class="mt-6 flex justify-end gap-3">
@@ -52,11 +52,14 @@
                   type="button"
                   :class="[
                     'inline-flex justify-center rounded-lg border border-transparent px-4 py-2 text-sm font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 transition-colors',
-                    type === 'danger' ? 'bg-red-600 hover:bg-red-700 focus-visible:ring-red-500' :
-                    type === 'success' ? 'bg-green-600 hover:bg-green-700 focus-visible:ring-green-500' :
-                    type === 'warning' ? 'bg-amber-500 hover:bg-amber-600 focus-visible:ring-amber-400' :
-                    'bg-blue-600 hover:bg-blue-700 focus-visible:ring-blue-500',
-                    isConfirmDisabled ? 'opacity-50 cursor-not-allowed' : ''
+                    type === 'danger'
+                      ? 'bg-red-600 hover:bg-red-700 focus-visible:ring-red-500'
+                      : type === 'success'
+                        ? 'bg-green-600 hover:bg-green-700 focus-visible:ring-green-500'
+                        : type === 'warning'
+                          ? 'bg-amber-500 hover:bg-amber-600 focus-visible:ring-amber-400'
+                          : 'bg-blue-600 hover:bg-blue-700 focus-visible:ring-blue-500',
+                    isConfirmDisabled ? 'opacity-50 cursor-not-allowed' : '',
                   ]"
                   @click="handleConfirm"
                   :disabled="isConfirmDisabled"
@@ -123,7 +126,7 @@
     emit('update:modelValue', false);
     emit('cancel');
   };
-  
+
   const handleConfirm = () => {
     if (isConfirmDisabled.value) return;
     emit('confirm');

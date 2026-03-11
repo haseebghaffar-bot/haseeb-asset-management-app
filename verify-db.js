@@ -36,14 +36,14 @@ async function verify() {
     try {
       const [assets] = await sequelize.query('SELECT * FROM haseeb_asset_info LIMIT 5');
       console.log('Recent Assets in RDS (haseeb_asset_info):', assets);
-    } catch (tableError) {
+    } catch (_tableError) {
       console.log('⚠️  Table "haseeb_asset_info" does not exist yet. This is expected if the first deployment is still pending.');
     }
     
     try {
       const [oldAssets] = await sequelize.query('SELECT * FROM assets LIMIT 5');
       console.log('Recent Assets in RDS (old "assets" table):', oldAssets);
-    } catch (e) {
+    } catch (_e) {
       console.log('old table might be gone or not exist');
     }
     

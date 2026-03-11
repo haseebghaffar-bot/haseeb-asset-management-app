@@ -53,12 +53,23 @@
               <div class="flex items-center gap-2 min-w-0">
                 <el-icon class="text-[#a8abb2] dark:text-[#a3a6ad] shrink-0"><Sort /></el-icon>
                 <span class="truncate whitespace-nowrap">
-                  {{ 
-                    assetStore.sortOrder.field === 'createdAt' && assetStore.sortOrder.direction === 'desc' ? 'Newest First' :
-                    assetStore.sortOrder.field === 'createdAt' && assetStore.sortOrder.direction === 'asc' ? 'Oldest First' :
-                    assetStore.sortOrder.field === 'name' && assetStore.sortOrder.direction === 'asc' ? 'Name (A-Z)' :
-                    assetStore.sortOrder.field === 'name' && assetStore.sortOrder.direction === 'desc' ? 'Name (Z-A)' :
-                    assetStore.sortOrder.field === 'updatedAt' && assetStore.sortOrder.direction === 'desc' ? 'Recently Updated' : 'Sort By'
+                  {{
+                    assetStore.sortOrder.field === 'createdAt' &&
+                    assetStore.sortOrder.direction === 'desc'
+                      ? 'Newest First'
+                      : assetStore.sortOrder.field === 'createdAt' &&
+                          assetStore.sortOrder.direction === 'asc'
+                        ? 'Oldest First'
+                        : assetStore.sortOrder.field === 'name' &&
+                            assetStore.sortOrder.direction === 'asc'
+                          ? 'Name (A-Z)'
+                          : assetStore.sortOrder.field === 'name' &&
+                              assetStore.sortOrder.direction === 'desc'
+                            ? 'Name (Z-A)'
+                            : assetStore.sortOrder.field === 'updatedAt' &&
+                                assetStore.sortOrder.direction === 'desc'
+                              ? 'Recently Updated'
+                              : 'Sort By'
                   }}
                 </span>
               </div>

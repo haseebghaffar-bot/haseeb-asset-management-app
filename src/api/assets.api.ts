@@ -23,13 +23,12 @@ export const assetsApi = {
       delete cleanedVariables.filter;
     }
 
-    const data = await graphqlRequest<{ listHaseebAssets: { items: Asset[]; nextToken: string | null } }>(
-      LIST_ASSETS,
-      {
-        ...cleanedVariables,
-        filter: cleanedVariables.filter ? JSON.stringify(cleanedVariables.filter) : undefined
-      }
-    );
+    const data = await graphqlRequest<{
+      listHaseebAssets: { items: Asset[]; nextToken: string | null };
+    }>(LIST_ASSETS, {
+      ...cleanedVariables,
+      filter: cleanedVariables.filter ? JSON.stringify(cleanedVariables.filter) : undefined,
+    });
     return data.listHaseebAssets;
   },
 

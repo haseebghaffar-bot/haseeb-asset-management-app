@@ -212,7 +212,7 @@
   import { formatDate, formatCurrency } from '@/services/utils';
   import DeleteConfirmation from '@/components/Inventory/DeleteConfirmation.vue';
   import { assetsApi } from '@/api/assets.api';
-  import { triggerSuccess, triggerError } from '@/components/Common/SuccessNotification.vue';
+  import { triggerSuccess, triggerError } from '@/components/Common/SuccessNotification';
   import ErrorAlert from '@/components/Common/ErrorAlert.vue';
   import { useImageCache } from '@/composables/useImageCache';
   import {

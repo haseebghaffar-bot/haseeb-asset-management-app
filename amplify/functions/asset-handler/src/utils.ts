@@ -1,21 +1,41 @@
-import { Op } from 'sequelize';
 
-export function translateFilter(filter: any) {
-  if (!filter || typeof filter !== 'object') return {};
-  const where: any = {};
+export function translateFilterToSql(filter: any) {
+  if (!filter || typeof filter !== 'object') return { whereSql: '', values: [] };
+  
+  const segments: string[] = [];
+  const values: any[] = [];
+  
   for (const key in filter) {
     const value = filter[key];
     if (value && typeof value === 'object') {
-      if ('eq' in value) where[key] = value.eq;
-      else if ('ne' in value) where[key] = { [Op.ne]: value.ne };
-      else if ('contains' in value) where[key] = { [Op.like]: `%${value.contains}%` };
-      else if ('between' in value) where[key] = { [Op.between]: value.between };
-      else if ('beginsWith' in value) where[key] = { [Op.like]: `${value.beginsWith}%` };
+      if ('eq' in value) {
+        segments.push(`\`${key}\` = ?`);
+        values.push(value.eq);
+      } else if ('ne' in value) {
+        segments.push(`\`${key}\` != ?`);
+        values.push(value.ne);
+      } else if ('contains' in value) {
+        segments.push(`\`${key}\` LIKE ?`);
+        values.push(`%${value.contains}%`);
+      } else if ('between' in value) {
+        if (Array.isArray(value.between) && value.between.length === 2) {
+          segments.push(`\`${key}\` BETWEEN ? AND ?`);
+          values.push(value.between[0], value.between[1]);
+        }
+      } else if ('beginsWith' in value) {
+        segments.push(`\`${key}\` LIKE ?`);
+        values.push(`${value.beginsWith}%`);
+      }
     } else {
-      where[key] = value;
+      segments.push(`\`${key}\` = ?`);
+      values.push(value);
     }
   }
-  return where;
+  
+  return {
+    whereSql: segments.length > 0 ? ' AND ' + segments.join(' AND ') : '',
+    values
+  };
 }
 
 export function safeIsoDate(val: any): string | null {
@@ -24,7 +44,7 @@ export function safeIsoDate(val: any): string | null {
     const date = new Date(val);
     if (isNaN(date.getTime())) return String(val);
     return date.toISOString();
-  } catch (e) {
+  } catch (_e) {
     return String(val);
   }
 }
@@ -32,7 +52,7 @@ export function safeIsoDate(val: any): string | null {
 export function formatAsset(asset: any) {
   if (!asset) return null;
   try {
-    const data = typeof asset.toJSON === 'function' ? asset.toJSON() : asset;
+    const data = { ...asset };
     
     if (data.purchaseDate) {
       const val = data.purchaseDate;

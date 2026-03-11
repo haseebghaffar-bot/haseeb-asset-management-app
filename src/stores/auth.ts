@@ -29,7 +29,7 @@ export const useAuthStore = defineStore('auth', () => {
     () =>
       userProfile.value?.name || userAttributes.value?.name || currentUser.value?.username || 'User'
   );
-  
+
   const resolvedAvatarUrl = ref('');
   const userAvatar = computed(() => resolvedAvatarUrl.value || userProfile.value?.avatarUrl || '');
   const userEmail = computed(
@@ -69,7 +69,7 @@ export const useAuthStore = defineStore('auth', () => {
       } else {
         await handleProfileCreationFallback();
       }
-    } catch (err) {
+    } catch (_err) {
       await handleProfileCreationFallback();
     }
   }
@@ -79,7 +79,7 @@ export const useAuthStore = defineStore('auth', () => {
     authError.value = null;
     try {
       const activeData = await authApi.getActiveUser();
-      
+
       if (activeData?.user) {
         currentUser.value = activeData.user;
         userAttributes.value = (activeData.attributes as Record<string, string>) || {};
@@ -227,7 +227,7 @@ export const useAuthStore = defineStore('auth', () => {
     isLoading.value = true;
     try {
       let newAvatarUrl = userProfile.value.avatarUrl;
-      
+
       if (data.avatarFile) {
         const { key } = await storageApi.uploadProfileImage(data.avatarFile);
         newAvatarUrl = key;

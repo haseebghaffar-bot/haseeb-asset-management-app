@@ -180,7 +180,7 @@
   import { storageApi } from '@/api/storage.api';
   import { zodField } from '@/services/validation';
   import { assetSchema } from '@/schemas/asset.schema';
-  import { triggerSuccess, triggerError } from '@/components/Common/SuccessNotification.vue';
+  import { triggerSuccess, triggerError } from '@/components/Common/SuccessNotification';
   import { buildUserFriendlyErrorMessage } from '@/services/utils';
   import { AssetCategory, AssetStatus, AssetCondition } from '@/types';
   import type { CreateAssetInput, UpdateAssetInput } from '@/types';

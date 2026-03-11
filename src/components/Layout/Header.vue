@@ -18,7 +18,9 @@
         >
           H
         </div>
-        <span class="font-semibold text-lg sm:text-xl text-gray-800 dark:text-gray-100 hidden sm:inline-block">
+        <span
+          class="font-semibold text-lg sm:text-xl text-gray-800 dark:text-gray-100 hidden sm:inline-block"
+        >
           AssetManager
         </span>
       </div>
@@ -49,7 +51,9 @@
             >
               {{ userName.charAt(0).toUpperCase() }}
             </el-avatar>
-            <span class="text-xs font-medium text-gray-700 dark:text-gray-200 hidden sm:block max-w-[100px] truncate">
+            <span
+              class="text-xs font-medium text-gray-700 dark:text-gray-200 hidden sm:block max-w-[100px] truncate"
+            >
               {{ userName }}
             </span>
           </span>

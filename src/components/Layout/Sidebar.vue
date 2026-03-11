@@ -110,7 +110,7 @@
 </script>
 
 <style>
-  .el-popper__arrow, 
+  .el-popper__arrow,
   .el-popper__arrow::before,
   .el-menu--collapse + .el-popper .el-popper__arrow,
   .el-tooltip__popper .el-popper__arrow {

@@ -83,7 +83,7 @@
   import { ref, computed, watch } from 'vue';
   import { UploadFilled, Delete } from '@element-plus/icons-vue';
   import { formatFileSize } from '@/services/utils';
-  import { triggerError } from '@/components/Common/SuccessNotification.vue';
+  import { triggerError } from '@/components/Common/SuccessNotification';
   const props = defineProps({
     existingImageUrl: {
       type: String,

@@ -144,12 +144,22 @@
           type="primary"
           class="w-full !rounded-lg !h-11 font-medium text-base shadow-sm mt-4 focus-visible:outline outline-2 outline-offset-2 outline-gray-500"
           :loading="isLoading"
-          @click="currentStep === 'reset-password' && !forgotData.email ? handleCompleteNewPassword() : handleResetPassword()"
+          @click="
+            currentStep === 'reset-password' && !forgotData.email
+              ? handleCompleteNewPassword()
+              : handleResetPassword()
+          "
         >
           Update Password
         </el-button>
 
-        <el-button text class="w-full mt-4" @click="forgotData.email ? currentStep = 'reset-code' : currentStep = 'signin'"> Back </el-button>
+        <el-button
+          text
+          class="w-full mt-4"
+          @click="forgotData.email ? (currentStep = 'reset-code') : (currentStep = 'signin')"
+        >
+          Back
+        </el-button>
       </el-form>
       <el-form
         v-else-if="currentStep === 'verify'"
