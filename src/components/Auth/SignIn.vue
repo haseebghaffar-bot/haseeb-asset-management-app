@@ -501,6 +501,16 @@
     });
   };
 
+  watch(
+    () => route.path,
+    (newPath) => {
+      const stepFromRoute = routeToStep[newPath];
+      if (stepFromRoute && stepFromRoute !== currentStep.value) {
+        currentStep.value = stepFromRoute;
+      }
+    }
+  );
+
   watch(currentStep, (newStep) => {
     if (newStep === 'signin' || newStep === 'forgot') {
       resetData.password = '';
@@ -509,7 +519,12 @@
 
     const targetPath = stepToRoute[newStep];
     if (targetPath && route.path !== targetPath) {
-      router.replace(targetPath);
+      const navigate = ['signin', 'forgot'].includes(newStep) ? router.replace : router.push;
+
+      navigate({
+        path: targetPath,
+        query: route.query,
+      });
     }
   });
 
