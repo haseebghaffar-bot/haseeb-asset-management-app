@@ -17,7 +17,7 @@
         :rules="rules"
         label-position="top"
         size="large"
-        @keyup.enter="handleRegister"
+        @submit.prevent="handleRegister"
       >
         <el-form-item label="Full Name" prop="name">
           <el-input v-model="formData.name" placeholder="John Doe" :prefix-icon="User" />
@@ -70,7 +70,7 @@
         :rules="verifyRules"
         label-position="top"
         size="large"
-        @keyup.enter="handleVerify"
+        @submit.prevent="handleVerify"
       >
         <el-form-item label="Verification Code" prop="code">
           <el-input

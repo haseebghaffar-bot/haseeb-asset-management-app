@@ -10,7 +10,7 @@
         :rules="rules"
         label-position="top"
         size="large"
-        @keyup.enter="handleLogin"
+        @submit.prevent="handleLogin"
       >
         <el-form-item label="Email Address" prop="email">
           <el-input
@@ -65,7 +65,7 @@
         :rules="forgotRules"
         label-position="top"
         size="large"
-        @keyup.enter="handleForgotPassword"
+        @submit.prevent="handleForgotPassword"
       >
         <el-form-item label="Email Address" prop="email">
           <el-input
@@ -96,7 +96,7 @@
         :rules="resetCodeRules"
         label-position="top"
         size="large"
-        @keyup.enter="handleVerifyResetCode"
+        @submit.prevent="handleVerifyResetCode"
       >
         <el-form-item label="Reset Code" prop="code">
           <el-input
@@ -127,7 +127,11 @@
         :rules="resetPasswordRules"
         label-position="top"
         size="large"
-        @keyup.enter="handleResetPassword"
+        @submit.prevent="
+          currentStep === 'reset-password' && !forgotData.email
+            ? handleCompleteNewPassword()
+            : handleResetPassword()
+        "
       >
         <el-form-item label="New Password" prop="password">
           <el-input
@@ -168,7 +172,7 @@
         :rules="verifyRules"
         label-position="top"
         size="large"
-        @keyup.enter="handleVerifyAccount"
+        @submit.prevent="handleVerifyAccount"
       >
         <el-form-item label="Verification Code" prop="code">
           <el-input

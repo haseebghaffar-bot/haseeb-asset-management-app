@@ -6,7 +6,7 @@
       shadow="never"
       class="!border-gray-200 dark:!border-transparent !rounded-xl dark:!bg-[#0a0a0a]"
     >
-      <el-form :model="form" label-position="top" class="space-y-4">
+      <el-form :model="form" label-position="top" class="space-y-4" @submit.prevent="handleSave">
         <div class="flex flex-col items-center mb-8">
           <el-upload
             class="avatar-uploader"
